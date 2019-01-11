@@ -12,7 +12,7 @@ def menu
   puts "6 - Combien y a-t-il de underscore _ dans tous les pseudos confondus ?\n\n"
   puts "7 - Trie la liste de handle par ordre alphabétique.\n\n"
   puts "8 - Quels sont les 50 handles les plus courts de ce array ?\n\n"
-  puts "9 - Quelle est la position dans l'array de la personne @epenser ?\n"
+  puts "9 - Quelle est la position dans l'array de la personne @epenser ?\n\n"
   print "Question n° ? > "
   user_ask = gets.chomp.to_i
   return user_ask
@@ -37,8 +37,9 @@ def user_action(menu)
   when 8
     return fifty_shortest
   when 9
+    return index_epensee
   else
-    puts "Y a pas de fucking #{menu} dans la fucking liste. Fuck."
+    puts "\n\nMais y a pas de fucking #{menu} dans la fucking liste. Stop messing with me. Fuck."
   end
 end
 
@@ -52,39 +53,42 @@ end
 
 def num_of_numbers
   total = handles.grep(/\d/)
-  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes avec des fuckings numéros dans leurs fucking handles"
+  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes avec des fuckings numéros dans leurs fucking handles ! \n\n"
 end
 
 def check_aude
   total = handles.grep(/(?i)aude/)
-  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes qui ont un fucking aude dans leur fucking handles"
+  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes qui ont un fucking aude dans leur fucking handles ! \n\n"
 end
 
 def check_first_caps
   total = handles.grep(/\@[A-Z]/)
-  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes qui ont un fucking handle commençant par une fucking majuscule (après le fucking @)"
+  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes qui ont un fucking handle commençant par une fucking majuscule (après le fucking @) ! \n\n"
 end
 
 def check_caps
   total = handles.grep(/[A-Z]/)
-  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes avec une fucking majuscule dans leurs fucking handles"
+  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes avec une fucking majuscule dans leurs fucking handles ! \n\n"
 end
 
 def check_underscore
   total = handles.grep(/[_]/)
-  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes avec un fucking underscore dans leurs fucking handles"
+  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes avec un fucking underscore dans leurs fucking handles ! \n\n"
 end
 
 def sort_alphabetically
-  puts "Still unbelievable ! Voilà la fucking liste de handles rangée dans le fucking ordre alphabétique, lucky you !"
+  puts "Still unbelievable ! Voilà la fucking liste de handles rangée dans le fucking ordre alphabétique, lucky you ! \n\n"
   puts handles.sort
 end
 
 def fifty_shortest
     sorted = handles.sort_by{|s| s.length }
-    puts "Still unbelievable ! Voilà les fucking cinquantes plus courts fucking handles de la fucking liste, lucky you !"
+    puts "Still unbelievable ! Voilà les fucking cinquantes plus courts fucking handles de la fucking liste, lucky you ! \n\n"
     puts sorted[0..49]
+end
 
+def index_epensee
+  puts "Wait! Ne pars pas yet, c'est fucking incredible, epenser est à la fucking #{handles.index("@epenser") + 1}ème position du fucking tableau ! Lucky him ! \n\n"
 end
 
 def perform
