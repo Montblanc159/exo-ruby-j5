@@ -31,8 +31,11 @@ def user_action(menu)
   when 5
     return check_caps
   when 6
+    return check_underscore
   when 7
+    return sort_alphabetically
   when 8
+    return fifty_shortest
   when 9
   else
     puts "Y a pas de fucking #{menu} dans la fucking liste. Fuck."
@@ -44,45 +47,45 @@ def cycle_journalists(search)
 end
 
 def num_of_journalists
-  puts "Il y a fucking #{handles.length} journalistes dans cette fucking liste ! \n\n"
+  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{handles.length} journalistes dans cette fucking liste de fucking handles ! \n\n"
 end
 
 def num_of_numbers
   total = handles.grep(/\d/)
-  puts "Il y a #{total.length} fucking journalistes avec des fuckings numéros dans leurs fucking handle"
+  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes avec des fuckings numéros dans leurs fucking handles"
 end
 
 def check_aude
   total = handles.grep(/(?i)aude/)
-  puts "Il y a #{total.length} fucking journalistes qui ont un fucking aude dans leur fucking handle"
+  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes qui ont un fucking aude dans leur fucking handles"
 end
 
 def check_first_caps
   total = handles.grep(/\@[A-Z]/)
-  puts total
-  puts "Il y a #{total.length} fucking journalistes qui ont un fucking handle commençant par une fucking majuscule (après le fucking @)"
+  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes qui ont un fucking handle commençant par une fucking majuscule (après le fucking @)"
 end
 
 def check_caps
-  i = 0
-  handles.each do |handle|
-    split_handle = handle.split("")
-    split_handle.each do |letter|
-      puts letter
-      case letter.upcase
-      when true
-        i += 1
-        break
-      else
-        i = i
-      end
-    end
-  end
-  puts "Il y a #{i}"
+  total = handles.grep(/[A-Z]/)
+  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes avec une fucking majuscule dans leurs fucking handles"
 end
 
-#   total = handles.grep(/[A-Z]/)
-# end
+def check_underscore
+  total = handles.grep(/[_]/)
+  puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{total.length} fucking journalistes avec un fucking underscore dans leurs fucking handles"
+end
+
+def sort_alphabetically
+  puts "Still unbelievable ! Voilà la fucking liste de handles rangée dans le fucking ordre alphabétique, lucky you !"
+  puts handles.sort
+end
+
+def fifty_shortest
+    sorted = handles.sort_by{|s| s.length }
+    puts "Still unbelievable ! Voilà les fucking cinquantes plus courts fucking handles de la fucking liste, lucky you !"
+    puts sorted[0..49]
+
+end
 
 def perform
   100.times do
