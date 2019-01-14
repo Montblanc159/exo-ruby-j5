@@ -23,8 +23,8 @@ def cryptocurrencies
     convert_name[i] = name
     i += 1
   end
-    cryptocurrencies = convert_name.zip(convert_value).to_h
-    return cryptocurrencies
+  cryptocurrencies = convert_name.zip(convert_value).to_h
+  return cryptocurrencies
 end
 
 def highest_value
@@ -32,39 +32,53 @@ def highest_value
   return highest_value
 end
 
+def lowest_value
+  lowest_value = cryptocurrencies.sort_by{|k, v| v}[0..3]
+  return lowest_value
+end
+
+def coin_crypto
+  coin_crypto = cryptocurrencies.keys.grep(/coin/)
+  return coin_crypto
+end
+
+def below_six
+  below_six = cryptocurrencies.keep_if{|k, v| v < 6000}
+  return below_six
+end
+
+def highest_below_six
+  highest_below_six = below_six.sort_by{|k, v| v}.reverse[0..3]
+  return highest_below_six
+end
+
 def menu
-    puts "Que voulez vous voir ? \n \n\n"
-    puts "1 - La ou les crypto qui ont la plus grosse valeur. \n\n"
-    puts "2 - Combien d'handle contiennent un numéro ? \n\n"
-    puts "3 - Combien d'handle contiennent les 4 lettres du prénom Aude à la suite (sans prendre en compte les majuscules) ?\n\n"
-    puts "4 - Combien commencent par une majuscule (première lettre juste après le @) ?\n\n"
-    puts "5 - Combien contiennent une majuscule ?\n\n"
-    puts "6 - Combien y a-t-il de underscore _ dans tous les pseudos confondus ?\n\n"
-    puts "7 - Trie la liste de handle par ordre alphabétique.\n\n"
-    puts "8 - Quels sont les 50 handles les plus courts de ce array ?\n\n"
-    puts "9 - Quelle est la position dans l'array de la personne @epenser ?\n\n"
-    print "Question n° ? > "
-    user_ask = gets.chomp.to_i
-    return user_ask
+  puts "Que voulez vous voir ? \n \n\n"
+  puts "1 - La ou les crypto qui ont la plus grosse valeur. \n\n"
+  puts "2 - La ou les cryptos qui ont la plus petite valeur. \n\n"
+  puts "3 - Le nombre de crypto contenant le mot coin.\n\n"
+  puts "4 - Les devises, dont le cours est inférieur à 6000.\n\n"
+  puts "5 - a devise la plus chère parmi celles dont le cours est inférieur à 6000.\n\n"
+  print "Question n° ? > "
+  user_ask = gets.chomp.to_i
+  return user_ask
 end
 
 def user_action(menu)
-    case menu
-    when 1
-      puts "#{highest_value}"
-    when 2
-
-    when 3
-
-    when 4
-
-    when 5
-
-    when 6
-
-    else
-      puts "\n\nMais y a pas de fucking #{menu} dans la fucking liste. Stop messing with me. Fuck."
-    end
+  case menu
+  when 1
+    puts "\nVoici les cryptomonnaies les plus en formes : \n #{highest_value}\n\n"
+  when 2
+    puts "\nVoici les cryptomonnaies les moins en formes : \n #{lowest_value}\n\n"
+  when 3
+    puts "\nIl y a #{coin_crypto.length} cryptomonnaies contenant le mot coin : \n #{coin_crypto}\n\n"
+  when 4
+    puts "\nIl y a #{below_six.length} cryptomonnaies ayant une valeur inférieure à 6000$ : \n#{below_six}\n\n"
+  when 5
+    puts "\nVoici les trois monnaies ayant la valeur la plus haute en dessous de 6000$ : \n#{highest_below_six}\n\n"
+  else
+    puts "\nY a pas de #{menu} dans la liste.\n\n"
+  end
 end
 
 def perform
