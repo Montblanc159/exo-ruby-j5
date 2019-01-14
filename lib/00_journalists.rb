@@ -43,9 +43,6 @@ def user_action(menu)
   end
 end
 
-def cycle_journalists(search)
-
-end
 
 def num_of_journalists
   puts "Unbelievable ! Il y a non pas 1, non pas 2, mais bien #{handles.length} journalistes dans cette fucking liste de fucking handles ! \n\n"
